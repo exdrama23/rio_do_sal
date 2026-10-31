@@ -1,0 +1,33 @@
+"use client"
+
+import { useRef } from "react"
+import { useFrame } from "@react-three/fiber"
+import { TorusKnot, MeshDistortMaterial } from "@react-three/drei"
+import type { Mesh } from "three"
+
+export default function GingaKnot() {
+  const mesh = useRef<Mesh>(null!)
+
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime()
+    mesh.current.rotation.x = Math.sin(t * 0.3) * 0.4
+    mesh.current.rotation.y += 0.005
+    mesh.current.rotation.z = Math.sin(t * 0.2) * 0.3
+    mesh.current.position.y = Math.sin(t * 0.5) * 0.2
+    mesh.current.position.x = Math.sin(t * 0.35) * 0.15
+  })
+
+  return (
+    <TorusKnot ref={mesh} args={[1, 0.3, 180, 24]} scale={0.75}>
+      <MeshDistortMaterial
+        color="#d97706"
+        roughness={0.2}
+        metalness={0.7}
+        distort={0.3}
+        speed={2}
+        emissive="#d97706"
+        emissiveIntensity={0.08}
+      />
+    </TorusKnot>
+  )
+}

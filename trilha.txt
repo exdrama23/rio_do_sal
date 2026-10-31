@@ -1,0 +1,73 @@
+[17:58, 30/10/2026] Alec Vinícius: Início: imagem do rio com uma pequena descrição chamativa 
+
+Imagens que contam história: adicionar histórias do rio do sal a partir de imagens para chamar atenção 
+
+História do rio do sal: colocar imagens de acordo com a história 
+
+Sobre o projeto: apresentar um texto com algumas imagens para visualizar o conteúdo 
+
+Solução: como complemento 
+
+Linha do tempo: com imagens temporais e explicação mínima dessas imagens
+
+Galeria com várias fotos da região
+[18:14, 30/10/2026] Alec Vinícius: Sistema onde núcleo fica separado de todo o sistema com a configuração que seria usado para limpar os resíduos da água separando água limpa da água suja que é causado pelo esgoto.
+[18:14, 30/10/2026] Alec Vinícius: 🗣️ FALA 1 — ORIGEM, LOCALIZAÇÃO E IMPORTÂNCIA
+
+Olá! Nosso trabalho é sobre o Rio do Sal, um curso d’água localizado na Região Metropolitana de Aracaju, entre os municípios de Aracaju e Nossa Senhora do Socorro, em Sergipe.
+
+Ele possui cerca de 20 quilômetros de extensão e nasce na área próxima ao encontro das rodovias BR-101 e BR-235. Como os dados sobre sua extensão e sua nascente podem variar conforme a fonte e o critério utilizado, esses valores devem ser confirmados em fontes oficiais.
+
+O nome Rio do Sal está associado à presença histórica de salinas na região. Por receber influência das marés e estar ligado ao estuário do rio Sergipe, o curso d’água apresenta variações de salinidade.
+
+O rio é importante para a população por estar relacionado à pesca, à coleta de mariscos e a outras atividades econômicas. Por isso, preservar o rio também significa proteger o sustento de muitas pessoas.
+
+🗣️ FALA 2 — MANGUEZAIS, ANIMAIS E PRESERVAÇÃO
+
+Uma das partes mais importantes do Rio do Sal é o seu manguezal.
+
+Entre as principais plantas estão o mangue-vermelho, o mangue-preto e o mangue-branco. Essas espécies são adaptadas ao solo lodoso, à variação das marés e à água salobra ou salgada.
+
+O manguezal funciona como um berçário natural, servindo de abrigo, alimentação e local de reprodução para muitos animais.
+
+Entre eles estão o caranguejo-uçá, o aratu, o guaiamum, o siri, o camarão, o robalo, a tainha, o bagre e a manjuba, além de aves como garças, socós e martins-pescadores.
+
+Além de abrigar esses animais, o manguezal ajuda a proteger as margens contra a erosão, armazenar carbono e manter o equilíbrio do ecossistema. Por isso, sua recuperação e preservação são fundamentais.
+
+🗣️ FALA 3 — POLUIÇÃO E MORTANDADE DE PEIXES EM 2023
+
+Apesar de sua importância, o Rio do Sal sofre há anos com a poluição causada por atividades humanas, especialmente pelo lançamento irregular de esgoto e pelo descarte inadequado de resíduos.
+
+Em 2023, foi registrada uma grande mortandade de peixes no rio. Segundo informações divulgadas na época, as análises indicaram baixa concentração de oxigênio dissolvido, excesso de nutrientes, como fósforo, e presença elevada de bactérias indicadoras de contaminação por esgoto.
+
+Esses resultados apontaram o lançamento de esgoto doméstico sem tratamento como uma das principais causas ou fatores associados ao episódio.
+
+Quando existe muito esgoto na água, as bactérias utilizam o oxigênio durante a decomposição da matéria orgânica. Se o oxigênio fica muito baixo, os peixes podem não conseguir respirar.
+
+Para evitar situações como essa, são necessários saneamento básico, tratamento de esgoto, coleta adequada de lixo, fiscalização e ações de limpeza.
+
+🗣️ FALA 4 — HISTÓRIA E CONCLUSÃO
+
+O Rio do Sal também possui uma história muito marcante para Sergipe.
+
+Em 1952, durante um passeio, uma embarcação conhecida como saveiro, que transportava estudantes e professoras da Escola São Francisco, sofreu um acidente no Rio do Sal.
+
+A tragédia provocou a morte de 31 crianças e de suas professoras, tornando-se um dos acontecimentos mais dolorosos relacionados à história do rio.
+
+Além disso, em 1951, um avião Douglas C-47 caiu na região, causando a morte de várias pessoas, entre elas o então governador do Rio Grande do Norte, Dix-Sept Rosado.
+
+O rio também teve importância econômica no passado por causa das antigas salinas, que deram origem ao seu nome.
+
+Hoje, a educação ambiental é essencial para que a população entenda a importância de não jogar lixo nem lançar esgoto no rio. Cuidar do Rio do Sal significa proteger os animais, a natureza, a população e também a história de Sergipe para as futuras gerações.
+
+
+1. Mapa fase → arquivo
+Fase	Seção atual	Arquivo	O que muda
+1. Início	Hero	components/sections/HeroSection.tsx	Imagem de fundo + título/subtítulo
+2. Imagens que contam história	Carrossel de mestres	Mestres.tsx + data/mestres.ts	Fotos do rio/mangue/pescadores no lugar dos mestres
+3. História do Rio do Sal	"Aboult" (3 imagens + texto)	Aboult.tsx	Texto longo da FALA 4 + 3 imagens
+4. Sobre o projeto	Player de música	RecordsSection.tsx + data/tracks.ts	Vira apresentação do projeto
+5. Solução	CTA	CtaSection.tsx	Sistema de separação água limpa/suja
+6. Linha do tempo	Timeline	Timeline.tsx (TIMELINE_DATA inline)	4 marcos: salinas → 1951 → 1952 → 2023
+7. Galeria	Bento gallery	GaleriaSection.tsx + data/gallery.ts	Fotos da região
+Fora das fases, mas obrigatório para o site não ficar "de capoeira": app/layout.tsx (metadata/título), components/ui/Navigation.tsx + data/navigation.ts (marca "CAPOEIRA SETE QUEDAS").

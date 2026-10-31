@@ -1,0 +1,32 @@
+import Navigation from "@/components/ui/Navigation"
+import SceneCanvas from "@/components/scene/SceneCanvas"
+import HeroSection from "@/components/sections/HeroSection"
+import Mestres from "@/components/sections/Mestres"
+import RaizesSection from "@/components/sections/RaizesSection"
+import MusicasSection from "@/components/sections/MusicasSection"
+import CalendarioSection from "@/components/sections/CalendarioSection"
+import GaleriaSection from "@/components/sections/GaleriaSection"
+import MuralSection from "@/components/sections/MuralSection"
+import BeneficiosSection from "@/components/sections/BeneficiosSection"
+import CtaSection from "@/components/sections/CtaSection"
+
+export default function Home() {
+  return (
+    <>
+      <Navigation />
+      <SceneCanvas />
+      <HeroSection />
+      <Mestres />
+      <RaizesSection />
+      <MusicasSection />
+      <CalendarioSection />
+      <GaleriaSection />
+      <MuralSection />
+      <BeneficiosSection />
+      <CtaSection />
+      <footer className="bg-stone-950 px-6 py-12 text-center text-sm text-stone-500">
+        <p>&copy; {new Date().getFullYear()} Capoeira Angola. Feito com axe.</p>
+      </footer>
+    </>
+  )
+}

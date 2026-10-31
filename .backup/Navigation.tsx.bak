@@ -1,0 +1,143 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { navItems } from "@/data/navigation"
+
+export default function Navigation() {
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  // Controle de scroll da página
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  // Bloqueio de scroll no body quando o menu está aberto
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => { document.body.style.overflow = "" }
+  }, [open])
+
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? "bg-stone-950/90 backdrop-blur-md shadow-xl shadow-black/20" : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="#" className="relative z-50 font-display text-xl font-bold tracking-wide text-amber-50">
+            CAPOEIRA SETE QUEDAS
+          </a>
+
+          {/* Desktop Nav */}
+          <div className="hidden items-center gap-8 md:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="relative text-sm uppercase tracking-widest text-stone-400 transition-colors hover:text-amber-400 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-amber-500 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#contato"
+              className="rounded-full border border-amber-700/50 px-5 py-2 text-sm uppercase tracking-wider text-amber-300 transition-colors hover:border-amber-500 hover:text-amber-100"
+            >
+              Participe
+            </a>
+          </div>
+
+          {/* Botão Mobile Hambúrguer */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden focus:outline-none"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+          >
+            <span
+              className={`block h-px w-6 bg-amber-200 transition-transform duration-300 ease-in-out ${
+                open ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-px w-6 bg-amber-200 transition-opacity duration-300 ease-in-out ${
+                open ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-px w-6 bg-amber-200 transition-transform duration-300 ease-in-out ${
+                open ? "-translate-y-[9px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
+      </nav>
+
+      {/* Menu Mobile Fullscreen (Animação Circular clip-path) */}
+      <div
+        className={`fixed inset-0 z-40 flex flex-col justify-between bg-stone-950 px-6 pb-12 pt-32 md:hidden transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]`}
+        style={{
+          // O segredo da animação "ExpandingMenu" sem JS pesado:
+          // A origem do círculo é no canto superior direito (onde fica o botão hambúrguer)
+          clipPath: open ? "circle(150% at calc(100% - 3rem) 3rem)" : "circle(0% at calc(100% - 3rem) 3rem)",
+          pointerEvents: open ? "auto" : "none",
+        }}
+        aria-hidden={!open}
+      >
+        {/* Links de Navegação com Stagger Effect */}
+        <div className="flex flex-col gap-6">
+          {navItems.map((item, index) => (
+            <div 
+              key={item.id} 
+              className="overflow-hidden" // Essencial para o efeito slide-up
+            >
+              <a
+                href={`#${item.id}`}
+                onClick={() => setOpen(false)}
+                className={`group flex items-center gap-4 font-display text-4xl font-light tracking-tight text-stone-300 transition-all duration-500 hover:text-amber-400 ${
+                  open ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+                }`}
+                style={{
+                  transitionDelay: open ? `${100 + index * 100}ms` : "0ms",
+                }}
+              >
+                {/* Linha indicadora inspirada no seu código alvo */}
+                <span className="h-0.5 w-0 bg-amber-500 transition-all duration-300 group-hover:w-8" />
+                {item.label}
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {/* Rodapé do Menu (Participe e Redes Sociais) */}
+        <div 
+          className={`flex flex-col gap-8 border-t border-stone-800 pt-8 transition-all duration-700 ${
+            open ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+          style={{ transitionDelay: open ? "500ms" : "0ms" }}
+        >
+          <a
+            href="#contato"
+            onClick={() => setOpen(false)}
+            className="inline-flex w-fit items-center justify-center rounded-full bg-amber-500 px-8 py-4 text-sm font-bold uppercase tracking-wider text-stone-950 transition-transform hover:scale-105 active:scale-95"
+          >
+            Participe Agora
+          </a>
+
+          <div className="flex gap-6 text-sm uppercase tracking-widest text-stone-500">
+            <a href="#" className="hover:text-amber-400">Instagram</a>
+            <a href="#" className="hover:text-amber-400">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}

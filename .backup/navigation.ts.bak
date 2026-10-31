@@ -1,0 +1,13 @@
+export interface NavItem {
+  id: string
+  label: string
+}
+
+export const navItems: NavItem[] = [
+  { id: "inicio", label: "Inicio" },
+  { id: "raizes", label: "Raizes" },
+  { id: "musicas", label: "Musicas" },
+  { id: "calendario", label: "Calendario" },
+  { id: "galeria", label: "Galeria" },
+  { id: "mural", label: "Mural" },
+]
