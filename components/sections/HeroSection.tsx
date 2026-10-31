@@ -96,18 +96,6 @@ export default function HeroSection() {
             Nasce perto da BR-101, atravessa manguezais, deságua no Rio Sergipe
             e carrega o sal que lhe deu nome.
           </motion.p>
-
-          <motion.div 
-            variants={fadeUpVariants}
-            className="mt-10 flex flex-wrap gap-4 justify-start"
-          >
-            <a href="#historias" className="rounded-full bg-amber-600 px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition hover:bg-amber-500 hover:scale-105 active:scale-95">
-              Conhecer o rio
-            </a>
-            <a href="#contato" className="rounded-full border border-amber-700/40 px-8 py-3 text-sm font-semibold uppercase tracking-wider text-amber-200 transition hover:border-amber-500 hover:text-amber-100 hover:bg-stone-900/50 hover:scale-105 active:scale-95">
-              Participe
-            </a>
-          </motion.div>
         </motion.div>
       </div>
 
